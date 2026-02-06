@@ -41,7 +41,7 @@ ALLOWED_HOSTS = os.getenv(
 
     "ALLOWED_HOSTS",
 
-    "localhost,127.0.0.1,hojadevida-bootcamp-romau-c4ayawcwaefqekge.centralus-01.azurewebsites.net"
+    "localhost,127.0.0.1,hojadevidamarrasquinsolorzano-crbse3ejd4bzdedg.canadacentral-01.azurewebsites.net"
 
 ).split(",")
 
