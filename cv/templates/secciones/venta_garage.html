@@ -1,0 +1,105 @@
+{% extends "base.html" %}
+
+{% block title %}Venta garage{% endblock %}
+
+
+{% block content %}
+
+<div class="sec-shell">
+
+  <h1 class="sec-title">🏷️ Venta garage</h1>
+
+
+  {% if items %}
+
+    {% for x in items %}
+
+      <div class="card garage-card">
+
+        <h2 class="card-title">{{ x.nombreproducto }}</h2>
+
+
+        <div class="garage-layout">
+
+
+          {% if x.foto_producto %}
+
+            <div class="garage-media">
+
+              <img class="garage-img" src="{{ x.foto_producto.url }}" alt="Foto producto">
+
+            </div>
+
+          {% endif %}
+
+
+          <div class="garage-body">
+
+            <div class="kv garage-kv">
+
+              {% if x.fecha %}
+
+                <div><b>Fecha:</b> {{ x.fecha }}</div>
+
+              {% endif %}
+
+
+              {% if x.estadoproducto %}
+
+                <div>
+
+                  <b>Estado:</b>
+
+                  <span class="estado estado-{{ x.estadoproducto|lower }}">
+
+                    {{ x.estadoproducto }}
+
+                  </span>
+
+                </div>
+
+              {% endif %}
+
+
+              {% if x.valordelbien is not None %}
+
+                <div><b>Valor:</b> ${{ x.valordelbien }}</div>
+
+              {% endif %}
+
+            </div>
+
+
+            {% if x.descripcion %}
+
+              <div class="garage-desc">
+
+                <b>Descripción:</b>
+
+                <div class="garage-desc-text">{{ x.descripcion }}</div>
+
+              </div>
+
+            {% endif %}
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    {% endfor %}
+
+  {% else %}
+
+    <p>No hay productos en venta garage.</p>
+
+  {% endif %}
+
+
+  <a class="back-link" href="{% url 'home' %}">← Volver al inicio</a>
+
+</div>
+
+{% endblock %}

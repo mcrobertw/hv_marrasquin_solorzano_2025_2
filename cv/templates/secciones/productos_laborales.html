@@ -1,0 +1,116 @@
+{% extends "base.html" %}
+
+{% block title %}Productos laborales{% endblock %}
+
+
+{% block content %}
+
+<div class="sec-shell">
+
+  <h1 class="sec-title">💼 Productos laborales</h1>
+
+
+  {% if items %}
+
+    {% for x in items %}
+
+      <div class="card prodlab-card">
+
+        <h2 class="card-title">{{ x.nombreproducto }}</h2>
+
+
+        <div class="prodlab-layout">
+
+
+          <!-- Columna izquierda: imagen producto -->
+
+          <div class="prodlab-media">
+
+            {% if x.imagenproducto %}
+
+              <img class="prodlab-img" src="{{ x.imagenproducto.url }}" alt="Producto">
+
+            {% else %}
+
+              <div class="prodlab-empty">Sin imagen</div>
+
+            {% endif %}
+
+          </div>
+
+
+          <!-- Columna derecha: datos -->
+
+          <div class="prodlab-body">
+
+            <div class="kv prodlab-kv">
+
+              {% if x.fechaproducto %}<div><b>Fecha:</b> {{ x.fechaproducto }}</div>{% endif %}
+
+            </div>
+
+
+            {% if x.descripcion %}
+
+              <div class="prodlab-desc">
+
+                <b>Descripción:</b>
+
+                <div class="prodlab-desc-text">{{ x.descripcion }}</div>
+
+              </div>
+
+            {% endif %}
+
+          </div>
+
+
+        </div>
+
+
+        <!-- Certificados -->
+
+        <div class="cert-row">
+
+          {% if x.certificado_imagen %}
+
+            <img class="cert-mini" src="{{ x.certificado_imagen.url }}" alt="Certificado">
+
+          {% elif x.certificado_pdf %}
+
+            <iframe class="pdf-mini" src="{{ x.certificado_pdf.url }}#toolbar=0&navpanes=0&scrollbar=0"></iframe>
+
+          {% endif %}
+
+
+          <div class="cert-actions">
+
+            {% if x.certificado_pdf %}
+
+              <a class="btn-outline" target="_blank" href="{{ x.certificado_pdf.url }}">Abrir PDF</a>
+
+            {% endif %}
+
+            {% if x.rutacertificado %}
+
+              <a class="btn-outline" target="_blank" rel="noopener" href="{{ x.rutacertificado }}">Ver certificado</a>
+
+            {% endif %}
+
+          </div>
+
+        </div>
+
+
+      </div>
+
+    {% endfor %}
+
+  {% endif %}
+
+
+  <a class="back-link" href="{% url 'home' %}">← Volver al inicio</a>
+
+</div>
+
+{% endblock %}

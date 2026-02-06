@@ -1,0 +1,64 @@
+# Python
+
+__pycache__/
+
+*.py[cod]
+
+*.pyo
+
+*.pyd
+
+
+# Entornos virtuales
+
+venv/
+
+env/
+
+.venv/
+
+
+# Archivos de entorno
+
+.env
+
+
+# Base de datos local
+
+#db.sqlite3
+
+
+# Migraciones compiladas
+
+*.log
+
+
+# Archivos estáticos recopilados
+
+staticfiles/
+
+
+# Media (si no quieres subir archivos)
+
+media/
+
+
+# IDEs / Editores
+
+.vscode/
+
+.idea/
+
+*.swp
+
+
+# Sistema operativo
+
+.DS_Store
+
+Thumbs.db
+
+
+# Cache
+
+.cache/
